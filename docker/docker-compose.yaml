@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres:14
+    container_name: bank-db
+    environment:
+      - POSTGRES_USER=bank
+      - POSTGRES_PASSWORD=bank
+      - POSTGRES_DB=bank
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - pg-logs:/var/log/postgresql
+    ports:
+    - 5432:5432
+    networks:
+      - internal
+
+networks:
+  internal:
+    name: bank-backend
+
+volumes:
+  pg-data:
+  pg-logs:
