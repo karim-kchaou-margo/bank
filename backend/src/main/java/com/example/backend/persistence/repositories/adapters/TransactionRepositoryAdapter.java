@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class transactionRepositoryAdapter implements TransactionRepositoryPort {
+public class TransactionRepositoryAdapter implements TransactionRepositoryPort {
   private final TransactionJpaRepository transactionJpaRepository;
 
   @Override

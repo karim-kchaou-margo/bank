@@ -18,24 +18,24 @@ public class AccountController {
   private final AccountService accountService;
   private final TransactionService transactionService;
 
-  @PutMapping("/{accountId}/deposit")
   @Transactional
+  @PutMapping("/{accountId}/deposit")
   public ResponseEntity<AccountResponse> accountDeposit(
       @PathVariable Long accountId, @RequestBody Double amount) {
     return ResponseEntity.ok(
         AccountResponse.response(accountService.accountDeposit(accountId, amount)));
   }
 
-  @PutMapping("/{accountId}/withdrawal")
   @Transactional
+  @PutMapping("/{accountId}/withdrawal")
   public ResponseEntity<AccountResponse> accountWithdrawal(
       @PathVariable Long accountId, @RequestBody Double amount) {
     return ResponseEntity.ok(
         AccountResponse.response(accountService.accountWithdrawal(accountId, amount)));
   }
 
-  @GetMapping("/{accountId}/history")
   @Transactional
+  @GetMapping("/{accountId}/history")
   public ResponseEntity<List<TransactionResponse>> accountHistory(
       @PathVariable("accountId") Long accountId) {
     return ResponseEntity.ok(

@@ -18,7 +18,10 @@ public class AccountEntity {
   private Long id;
 
   private Double balance;
-  @OneToMany private List<TransactionEntity> transactionEntities;
+
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+  @JoinColumn(name = "account_entity_id")
+  private List<TransactionEntity> transactionEntities;
 
   public Account toDomainModel() {
     return Account.builder()

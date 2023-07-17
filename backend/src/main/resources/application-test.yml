@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:bank
+    username: sa
+    password:
+    hikari:
+      validationTimeout: 50000
+  jpa:
+    hibernate:
+      jdbc:
+        time_zone: UTC
+      show-sql: true
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: never
+  flyway:
+    user: sa
+    password:
+    url: jdbc:h2:mem:bank
+    locations: filesystem:db/migration
+    enabled: true
+    baseline-on-migrate: true
